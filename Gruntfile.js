@@ -38,14 +38,24 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: ['src/view/**/*.js'],
-				tasks: ['']
+				tasks: ['copy', 'concat'],
+				options: {
+					livereload: true,
+				}
+			},
+			html: {
+				files: ['src/view/**/*.html', 'src/index.html'],
+				tasks: ['copy', 'concat'],
+				options: {
+					livereload: true,
+				}
 			}
 		},
 		connect: {
 			server: {
 				port: 8000,
 				options: {
-					liveload: true,
+					livereload: true,
 					base: {
 						path: 'target',
 						options: {
