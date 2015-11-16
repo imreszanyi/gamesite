@@ -1,0 +1,22 @@
+{
+  "name": "gamesite",
+  "homepage": "https://github.com/imreszanyi/gamesite",
+  "authors": [
+    "Imre Szanyi <imre_szanyi@epam.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/3rdparty",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7"
+  }
+}
