@@ -1,13 +1,13 @@
 {
   "name": "gamesite",
-  "homepage": "https://github.com/imreszanyi/gamesite",
-  "authors": [
-    "Imre Szanyi <imre_szanyi@epam.com>"
-  ],
   "description": "",
   "main": "",
-  "moduleType": [],
+  "authors": [
+    "Imre Szanyi <imre.szanyi@gmail.com>"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/imreszanyi/gamesite",
+  "moduleType": [],
   "ignore": [
     "**/.*",
     "node_modules",
@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.7"
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5"
   }
 }
