@@ -27,12 +27,29 @@ module.exports = function(grunt) {
 				separator: ';',
 			},
 			modules: {
-				src: ['src/view/main/*.module.js'],
+				src: ['src/view/main/*.module.js', 'src/view/app.module.js'],
 				dest: '.cache/conc-app-module.js'
 			},
 			notmodules: {
 				src: ['src/view/**/*.js', '!src/view/**/*.module.js'],
 				dest: '.cache/conc-app-notmodule.js'
+			}
+		},
+		ngAnnotate: {
+			options: {
+				singleQuote: true,
+			},
+			app: {
+				files: {
+					'.cache/annotated-app.js': ['.cache/conc-app-module.js', '.cache/conc-app-notmodule.js', '.cache/app.templates.js']
+				}
+			}
+		},
+		uglify: {
+			app: {
+				files: {
+					'target/js/app.min.js': ['.cache/annotated-app.js']
+				}
 			}
 		},
 		watch: {
@@ -51,6 +68,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		
+		ngtemplates:  {
+	  		gameSiteApp:        {
+				cwd:      'src/view',
+				src:      '**/*.html',
+				dest:     '.cache/app.templates.js',
+				options: {
+					htmlmin: {
+						collapseBooleanAttributes:      false,
+						collapseWhitespace:             true,
+						removeAttributeQuotes:          false,
+						removeComments:                 true,
+						removeEmptyAttributes:          false,
+						removeRedundantAttributes:      false,
+						removeScriptTypeAttributes:     false,
+						removeStyleLinkTypeAttributes:  false
+					}
+				}
+	  		}
+		},
 		connect: {
 			server: {
 				port: 8000,
@@ -68,5 +105,5 @@ module.exports = function(grunt) {
 	});
 	require('load-grunt-tasks')(grunt);
 	
-	grunt.registerTask('run', ['copy', 'concat', 'connect', 'watch']);
+	grunt.registerTask('run', ['copy', 'ngtemplates', 'concat', 'ngAnnotate', 'uglify', 'connect', 'watch']);
 };
