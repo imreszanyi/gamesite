@@ -1,9 +1,9 @@
 (function(angular) {
-	angular.module('gameSiteApp.main').directive('main', function() {
+	angular.module('gameSiteApp.main').directive('mainPage', function() {
 		return {
 			scope: {},
 			restrict: 'E',
-			teplateUrl: 'main/main.html',
+			templateUrl: 'main/mainPage.html',
 			controller: mainController
 		}
 		

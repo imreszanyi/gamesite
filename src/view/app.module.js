@@ -10,9 +10,18 @@
 					url: '/',
 					views: {
 						'@': {
-							template: '<main></main>'
+							template: '<main-page></main-page>'
 						}
 					}	
 				})
+				.state('/home', {
+					url: '/home',
+					views: {
+						'@': {
+							template: '<div>home page</div>'
+						}
+					}	
+				})
+				
 		}])
 })(angular);
