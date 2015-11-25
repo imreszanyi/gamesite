@@ -7,7 +7,7 @@
 			controller: mainController
 		}
 
-		function mainController($scope) {
+		function mainController($scope, calcService) {
 			$scope.less_odds1 = 11.5;
 			$scope.less_odds2 = 3.6;
 			$scope.less_odds3 = 1.9;
@@ -23,10 +23,8 @@
 			$scope.more_odds6 = 10.5;
 
 			$scope.calc = function() {
-				$scope.result = "-1231";
+				$scope.result = calcService.calculate();
 			}
-
-
 
 		}
 
