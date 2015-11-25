@@ -79,14 +79,14 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: ['src/view/**/*.js'],
-				tasks: ['copy', 'concat'],
+				tasks: ['build'],
 				options: {
 					livereload: true,
 				}
 			},
 			html: {
 				files: ['src/view/**/*.html', 'src/index.html'],
-				tasks: ['copy', 'concat'],
+				tasks: ['build'],
 				options: {
 					livereload: true,
 				}
@@ -129,5 +129,6 @@ module.exports = function(grunt) {
 	});
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('run', ['less:bootstrap', 'less:myapp', 'copy', 'ngtemplates', 'concat', 'ngAnnotate', 'uglify', 'connect', 'watch']);
+	grunt.registerTask('build', ['less:bootstrap', 'less:myapp', 'copy', 'ngtemplates', 'concat', 'ngAnnotate', 'uglify']);
+	grunt.registerTask('run', ['build', 'connect', 'watch']);
 };
