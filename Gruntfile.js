@@ -5,10 +5,34 @@ module.exports = function(grunt) {
 				src: [".cache", "target"]
 			}
 		},
+		less: {
+			bootstrap: {
+				options: {
+					compress: true,
+					optimization: 3
+				},
+				files: {
+					"target/style/bootstrap.css": "src/style/mybootstrap.less",
+					"target/style/font-awesome.css" : "src/style/myfont-awesome.less"
+				}
+			},
+			myapp: {
+				options: {
+					compress: true,
+					optimization: 3
+				},
+				files: {
+				  "target/style/myapp.css": "src/style/myapp.less"
+				}
+			},
+		},
+
+
+
 		copy: {
 			main: {
 				files: [
-		  		// includes files within path and its sub-directories 
+		  		// includes files within path and its sub-directories
 		  			{expand: true, cwd: 'src/image/', src: ['**'], dest: 'target/image/'},
 		  			{expand: true, cwd: 'src/data/', src: ['**'], dest: 'target/data/'},
 		  			{expand: true, cwd: 'src/3rdparty/bootstrap/fonts/', src: ['**'], dest: 'target/style/fonts'},
@@ -68,7 +92,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		
+
 		ngtemplates:  {
 	  		gameSiteApp:        {
 				cwd:      'src/view',
@@ -104,6 +128,6 @@ module.exports = function(grunt) {
 		}
 	});
 	require('load-grunt-tasks')(grunt);
-	
-	grunt.registerTask('run', ['copy', 'ngtemplates', 'concat', 'ngAnnotate', 'uglify', 'connect', 'watch']);
+
+	grunt.registerTask('run', ['less:bootstrap', 'less:myapp', 'copy', 'ngtemplates', 'concat', 'ngAnnotate', 'uglify', 'connect', 'watch']);
 };

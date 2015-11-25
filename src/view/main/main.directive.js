@@ -6,9 +6,9 @@
 			templateUrl: 'main/mainPage.html',
 			controller: mainController
 		}
-		
+
 		function mainController($scope) {
-			$scope.title = "main title";
+			$scope.title = "gglsz";
 		}
 	})
 })(angular);
