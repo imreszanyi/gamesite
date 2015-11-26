@@ -6,8 +6,9 @@
             calculate: calculate
 		}
 
-        function calculate() {
-            return 112;
+        function calculate($scope) {
+            
+            return $scope.more_odds5 * 2;
         }
     });
 })(angular);

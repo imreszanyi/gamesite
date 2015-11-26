@@ -8,25 +8,16 @@
 		}
 
 		function mainController($scope, calcService) {
-			$scope.less_odds1 = 11.5;
-			$scope.less_odds2 = 3.6;
-			$scope.less_odds3 = 1.9;
-			$scope.less_odds4 = 1.35;
-			$scope.less_odds5 = 1.12;
-			$scope.less_odds6 = 1.03;
+			$scope.less_odds = [ 11.5, 3.6, 1.9, 1.35, 1.12, 1.03 ];
+			$scope.less_bet = [ 0, 0, 0, 0, 0, 0];
+			$scope.more_odds = [ 1.03, 1.22, 1.7, 2.7, 4.65, 10.5 ];
+			$scope.more_bet = [ 0, 0, 0, 0, 0, 0];
 
-			$scope.more_odds1 = 1.03;
-			$scope.more_odds2 = 1.22;
-			$scope.more_odds3 = 1.7;
-			$scope.more_odds4 = 2.7;
-			$scope.more_odds5 = 4.65;
-			$scope.more_odds6 = 10.5;
-
-			$scope.betText = "Label1";
-			$scope.oddsText = "Label2";
+			$scope.betText = "bt";
+			$scope.oddsText = "od";
 
 			$scope.calc = function() {
-				$scope.result = calcService.calculate();
+				$scope.result = calcService.calculate($scope);
 			}
 
 		}
