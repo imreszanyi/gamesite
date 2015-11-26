@@ -22,6 +22,9 @@
 			$scope.more_odds5 = 4.65;
 			$scope.more_odds6 = 10.5;
 
+			$scope.betText = "Label1";
+			$scope.oddsText = "Label2";
+
 			$scope.calc = function() {
 				$scope.result = calcService.calculate();
 			}
