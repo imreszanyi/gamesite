@@ -15,34 +15,31 @@
             //iterate these
             var la = [1, 1, 1, 1, 1, 1];
             var ma = [1, 1, 1, 1, 1, 1];
-            return doCalc(la, ma, 3);
+            return doCalc(la, ma, 2);
 
-        }
-
-        function ff(la) {
-            return la.length;
         }
 
         function doCalc(betLessArr, betMoreArr, gnum) {
-            //betArr = [ 12 x b ]
-            // less
+
 
             var lw = 0;
             var mw = 0;
 
             for(var i = 0; i < betLessArr.length; i++) {
                 if ( gnum < myScope.outs[i] ) {
-                    lw = lw + (betLessArr[i] * myScope.less_odds[i] - betLessArr[i]);
+                    lw = lw + betLessArr[i] * myScope.less_odds[i];
                 }
+                lw = lw - betLessArr[i];
             }
 
             for(var i = 0; i < betMoreArr.length; i++) {
                 if ( gnum > myScope.outs[i] ) {
-                    mw = mw + (betMoreArr[i] * myScope.more_odds[i] - betMoreArr[i]);
+                    mw = mw + betMoreArr[i] * myScope.more_odds[i];
                 }
+                mw = mw - betMoreArr[i];
             }
 
-            return (mw + lw) - 6;
+            return (mw + lw );
         }
 
 
